@@ -13,9 +13,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.namespace.QName;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.openstack.client.common.ExtensionData;
 import org.openstack.model.atom.Link;
+import org.openstack.model.common.ExtensionData;
 
 @XmlRootElement(name = "server")
 @XmlAccessorType(XmlAccessType.NONE)
@@ -40,11 +39,9 @@ public class Server implements Serializable {
 	private String hostId;
 
 	@XmlAttribute
-	@JsonProperty("user_id")
 	private String userId;
 
 	@XmlAttribute
-	@JsonProperty("tenant_id")
 	private String tenantId;
 
 	@XmlAttribute(name = "accessIPv4")
@@ -84,7 +81,6 @@ public class Server implements Serializable {
 	private Addresses addresses;
 
 	@XmlElement(name = "link", namespace = "http://www.w3.org/2005/Atom")
-	@JsonProperty("links")
 	private List<Link> links;
 
 	@XmlAttribute
@@ -255,6 +251,14 @@ public class Server implements Serializable {
 
 	public void setLinks(List<Link> links) {
 		this.links = links;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	@Override

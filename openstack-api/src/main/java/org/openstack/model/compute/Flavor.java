@@ -38,7 +38,6 @@ public class Flavor implements Serializable {
     private int disk;
 
     @XmlElement(name = "link", namespace = "http://www.w3.org/2005/Atom")
-    @JsonProperty("links")
 	private List<Link> links;
 
     public String getId() {

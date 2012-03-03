@@ -1,5 +1,8 @@
 package org.openstack.client;
 
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectOutputStream;
+
 import org.openstack.client.common.OpenstackSession;
 import org.openstack.client.common.OpenstackSession.Feature;
 import org.openstack.client.compute.ServerResource;
@@ -12,7 +15,7 @@ import org.openstack.model.identity.Tenant;
 
 public class Test {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// X-Auth-Token (no tenant selected)
 		OpenstackSession session = OpenstackSession.create().with(Feature.VERBOSE);
 
@@ -67,7 +70,7 @@ public class Test {
 			ServerResource sr = new ServerResource(session, s);
 			System.out.println(sr.get(true).show());
 		}
-
+		
 		// ServerForCreate serverForCreate = new ServerForCreate();
 		// serverForCreate.setName("eureka1");
 		// serverForCreate.setFlavorRef("1");

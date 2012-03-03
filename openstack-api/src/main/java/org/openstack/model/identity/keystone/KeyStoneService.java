@@ -8,7 +8,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.codehaus.jackson.annotate.JsonProperty;
 import org.openstack.model.identity.Service;
 import org.openstack.model.identity.ServiceEndpoint;
 
@@ -18,12 +17,12 @@ import com.google.common.collect.Lists;
 @XmlAccessorType(XmlAccessType.NONE)
 public class KeyStoneService implements Service {
 
-	@JsonProperty("endpoints")
+	// @JsonProperty("endpoints")
 	@XmlElement(nillable = true, name = "endpoint", namespace="http://docs.openstack.org/identity/api/v2.0", type = KeyStoneServiceEndpoint.class)
 	private List<ServiceEndpoint> endpoints;
 
 	// Not sure what these are...
-	@JsonProperty("endpoints_links")
+	// @JsonProperty("endpoints_links")
 	private List<String> endpointsLinks;
 
     @XmlAttribute
